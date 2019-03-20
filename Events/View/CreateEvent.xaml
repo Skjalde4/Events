@@ -1,0 +1,210 @@
+﻿<Page
+    x:Class="Events.View.CreateEvent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ViewModel="using:Events.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Events.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:EventViewModel />
+    </Page.DataContext>
+
+    <Grid Loading="Grid_Loading">
+        <ComboBox
+            x:Name="cmbCategory"
+            Width="495"
+            Height="90"
+            Margin="905,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="20"
+            FontWeight="Bold"
+            SelectedIndex="0">
+            <ComboBoxItem Content="Select category" FontSize="20" />
+            <Button
+                x:Name="btnBirthday"
+                Click="btnBirthday_Click"
+                Content="Birthday" />
+            <Button
+                x:Name="btnWedding"
+                Click="btnWedding_Click"
+                Content="Wedding" />
+            <Button
+                x:Name="btnBachlorette"
+                Click="btnBachlorette_Click"
+                Content="Bachlorette" />
+            <Button
+                x:Name="btnAnniversary"
+                Click="btnAnniversary_Click"
+                Content="Anniversary" />
+            <Button
+                x:Name="btnValentinesDay"
+                Click="btnValentinesDay_Click"
+                Content="Valentines day" />
+        </ComboBox>
+        <TextBlock
+            Width="385"
+            Height="113"
+            Margin="105,98,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="48"
+            FontWeight="Bold"
+            Text="Event Makers"
+            TextAlignment="Center"
+            TextWrapping="Wrap" />
+        <RelativePanel
+            x:Name="pnlHide"
+            Width="1295"
+            Height="511"
+            Margin="105,361,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Button
+                x:Name="btnRequestEvent"
+                Width="243"
+                Height="50"
+                Margin="1029,424,-1029,-424"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="BtnRequestEvent_Click"
+                Content="Request Event"
+                FontSize="20"
+                FontWeight="Bold" />
+
+            <TextBlock
+                x:Name="txtCategoryName"
+                Width="368"
+                Height="75"
+                Margin="20,40,-306,-55"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="36"
+                FontWeight="Bold"
+                Text=""
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txbDescription"
+                Width="251"
+                Height="45"
+                Margin="1029,224,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                Text=""
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txbName"
+                Width="251"
+                Height="45"
+                Margin="1029,174,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                Text=""
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txbPlace"
+                Width="251"
+                Height="45"
+                Margin="1029,274,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                Text=""
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txbID"
+                Width="251"
+                Height="45"
+                Margin="1029,124,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                Text=""
+                TextWrapping="Wrap" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,124,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="ID"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,174,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Name"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,224,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Description"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,274,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Place"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,324,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Date"
+                TextWrapping="Wrap" />
+            <CalendarDatePicker
+                x:Name="Calendar"
+                Width="251"
+                Height="45"
+                Margin="1029,324,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                DateFormat="{}{day.integer} {month.full} {year.full}"
+                FirstDayOfWeek="Monday" />
+            <TextBlock
+                Width="157"
+                Height="45"
+                Margin="872,374,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Time"
+                TextWrapping="Wrap" />
+            <TimePicker
+                x:Name="TimePicker"
+                Width="251"
+                Height="45"
+                Margin="1029,374,-813,-6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+        </RelativePanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="Events.View.UserPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ViewModel="using:Events.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Events.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:EventViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <TextBlock
+            x:Name="txtEventCategory"
+            Width="737"
+            Height="135"
+            Margin="387,82,376,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="36"
+            FontWeight="Bold"
+            TextAlignment="Center"
+            TextWrapping="Wrap">
+            <Run Text="Event categor" />
+            <Run Text="ies" />
+        </TextBlock>
+        <ListView
+            Width="815"
+            Height="486"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Center"
+            ItemsSource="{Binding EventCategories}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Width="815"
+                        Height="204"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Image
+                            Width="380"
+                            Height="180"
+                            HorizontalAlignment="Left"
+                            Source="{Binding Uri}"
+                            Stretch="Fill" />
+                        <Button
+                            Width="380"
+                            Height="180"
+                            HorizontalAlignment="Right"
+                            Background="#FF5AB6DD"
+                            Content="{Binding EC}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>
