@@ -26,6 +26,7 @@ namespace Events.Model
         {
             Events = new ObservableCollection<Event>();
             LoadEventsAsync();
+            GetEventAsync();
         }
 
         public async void LoadEventsAsync()
@@ -41,6 +42,18 @@ namespace Events.Model
                 Events.Add(new Event(1, "Wedding", "Best day", "Paris", DateTime.Today));
             }
 
+        }
+
+        public async void GetEventAsync()
+        {
+            var events = await PersistencyServiceEvents.GetEventAsync();
+            if (events != null)
+                foreach (var ev in events)
+                {
+                    Events.Add(ev);
+                }
+            
+            
         }
 
         public  void Add(Event newEvent)

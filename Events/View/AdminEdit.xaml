@@ -29,9 +29,9 @@
             TextWrapping="Wrap" />
         <ListView
             x:Name="LstEvents"
-            Width="521.188"
+            Width="768.703"
             Height="633"
-            Margin="831.369,216,0,0"
+            Margin="711.781,216,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             d:LayoutRounding="Auto"
@@ -47,7 +47,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Width="745">
                         <StackPanel Width="Auto" HorizontalAlignment="Left">
                             <TextBlock
                                 Width="100"

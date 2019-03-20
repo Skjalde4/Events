@@ -23,18 +23,18 @@ namespace EventTest
 
                 try
                 {
-                    //Post tilføjer noget 
+                    //Post tilføjer noget
                     //Event event1 = new Event() { Name = "Spa day", Place = "Comwell", Description = "Time to enjoy life", DateTime = DateTime.Now };
                     //var post = client.PostAsJsonAsync("Api/Events", event1).Result;
                     //Console.WriteLine(post.StatusCode);
 
                     //Put ændre noget
-                    //Event event2 = new Event(){Name = "Birthday",Id= 2, Description = "My birthday party", Place = "Maglegårdsvej 1, 4000 Roskilde", DateTime = DateTime.Now};
-                    //var put = client.PutAsJsonAsync("api/events/2", event2).Result;
+                    //Event event2 = new Event() { Name = "Spa day", Id = 1002, Description = "My birthday party", Place = "Maglegårdsvej 1, 4000 Roskilde", DateTime = DateTime.Now };
+                    //var put = client.PutAsJsonAsync("api/events/1002", event2).Result;
 
                     ////Delete Sletter noget
 
-                    //var delete = client.DeleteAsync("api/events/7").Result;
+                    var delete = client.DeleteAsync("api/events/1003").Result;
 
                     // Get henter noget
                     var response = client.GetAsync("api/events").Result;

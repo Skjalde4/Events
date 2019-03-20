@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -52,6 +54,41 @@ namespace Events.Persistency
                 return null;
             }
         }
+
+        public static async Task<List<Event>> GetEventAsync()
+        {
+            const string ServerUrl = "HTTP://localhost:55860";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                try
+                {
+                    
+                    // Get henter noget
+                    var response = client.GetAsync("api/events").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var events = await response.Content.ReadAsAsync<IEnumerable<Event>>();
+                        return (List<Event>) events;
+                    }
+
+                    return null;
+
+                }
+                catch ( Exception e)
+                {
+
+                    return null;
+                }
+            }
+        }
+    
+        
 
         private class MessageDialogHelper
         {
