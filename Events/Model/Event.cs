@@ -23,6 +23,10 @@ namespace Events.Model
             DateTime = dateTime;
         }
 
+        public Event()
+        {
+        }
+
         public override string ToString()
         {
             return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Description)}: {Description}, {nameof(Place)}: {Place}, {nameof(DateTime)}: {DateTime}";

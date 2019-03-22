@@ -87,8 +87,36 @@ namespace Events.Persistency
                 }
             }
         }
-    
-        
+
+        public static async void PostEventAsync(Event events)
+        {
+            const string ServerUrl = "HTTP://localhost:55860";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                try
+                {
+                   
+                    var post = await client.PostAsJsonAsync("Api/Events", events);
+                    
+                }
+                catch (Exception e)
+                {
+                    new MessageDialog(e.Message).ShowAsync();
+                }
+
+            }
+        }
+
+        //public static async void PutEventAsync(Event events)
+
+
+
 
         private class MessageDialogHelper
         {

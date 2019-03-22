@@ -25,24 +25,26 @@ namespace Events.Model
         private EventCatalogSingleton()
         {
             Events = new ObservableCollection<Event>();
-            LoadEventsAsync();
+           // LoadEventsAsync();
             GetEventAsync();
+            PostEventAsync(id:, name:, description:,place:,dateTime:);
+            
         }
 
-        public async void LoadEventsAsync()
-        {
-            var events = await PersistencyServiceEvents.LoadEventsFromJsonAsync();
-            if (events != null)
-                foreach (var ev in events)
-                {
-                    Events.Add(ev);
-                }
-            else
-            {
-                Events.Add(new Event(1, "Wedding", "Best day", "Paris", DateTime.Today));
-            }
+        //public async void LoadEventsAsync()
+        //{
+        //    var events = await PersistencyServiceEvents.LoadEventsFromJsonAsync();
+        //    if (events != null)
+        //        foreach (var ev in events)
+        //        {
+        //            Events.Add(ev);
+        //        }
+        //    else
+        //    {
+        //        Events.Add(new Event(1, "Wedding", "Best day", "Paris", DateTime.Today));
+        //    }
 
-        }
+        //}
 
         public async void GetEventAsync()
         {
@@ -54,6 +56,15 @@ namespace Events.Model
                 }
             
             
+        }
+
+
+        public async void PostEventAsync(int id, string name, string description, string place, DateTime dateTime)
+        {
+            Event events = new Event(id, name, description, place, dateTime);
+            Events.Add(events);
+            PersistencyServiceEvents.SaveEventsAsJsonAsync(Events);
+
         }
 
         public  void Add(Event newEvent)
