@@ -113,7 +113,30 @@ namespace Events.Persistency
             }
         }
 
-        //public static async void PutEventAsync(Event events)
+        public static async void PutEventAsync(Event events)
+        {
+            const string ServerUrl = "HTTP://localhost:55860";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                try
+                {
+                   
+                    var put = await client.PutAsJsonAsync("api/events/1002", events);
+                    
+                }
+                catch (Exception e)
+                {
+                    new MessageDialog(e.Message).ShowAsync();
+                }
+
+            }
+        }
 
 
 

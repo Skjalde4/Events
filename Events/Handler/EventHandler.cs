@@ -21,12 +21,13 @@ namespace Events.Handler
 
         public void CreateEvent()
         {
-            Event newEvent = new Event(EventViewModel.Id,
-                                        EventViewModel.Name,
-                                        EventViewModel.Description,
-                                        EventViewModel.Place,
-                                        DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(EventViewModel.Date, EventViewModel.Time));
-            EventViewModel.EventCatalogSingleton.Add(newEvent);
+            //Event newEvent = new Event(EventViewModel.Id,
+            //                            EventViewModel.Name,
+            //                            EventViewModel.Description,
+            //                            EventViewModel.Place,
+            //                            DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(EventViewModel.Date, EventViewModel.Time));
+            //EventViewModel.EventCatalogSingleton.Add(newEvent);
+            EventViewModel.EventCatalogSingleton.Add(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(EventViewModel.Date, EventViewModel.Time));
 
         }
 

@@ -27,7 +27,7 @@ namespace Events.Model
             Events = new ObservableCollection<Event>();
            // LoadEventsAsync();
             GetEventAsync();
-            PostEventAsync(id:, name:, description:,place:,dateTime:);
+            
             
         }
 
@@ -59,20 +59,28 @@ namespace Events.Model
         }
 
 
-        public async void PostEventAsync(int id, string name, string description, string place, DateTime dateTime)
+        public async void Add(int id, string name, string description, string place, DateTime dateTime)
         {
             Event events = new Event(id, name, description, place, dateTime);
             Events.Add(events);
-            PersistencyServiceEvents.SaveEventsAsJsonAsync(Events);
+            PersistencyServiceEvents.PostEventAsync(events);
 
         }
 
-        public  void Add(Event newEvent)
+        public async void PutEventAsync(int id, string name, string description, string place, DateTime dateTime)
         {
-            Events.Add(newEvent);
-            PersistencyServiceEvents.SaveEventsAsJsonAsync(Events);
-
+            Event events = new Event(id, name, description, place, dateTime);
+            Events.Add(events);
+            PersistencyServiceEvents.PutEventAsync(events);
         }
+
+
+        //public  void Add(Event newEvent)
+        //{
+        //    Events.Add(newEvent);
+        //    PersistencyServiceEvents.SaveEventsAsJsonAsync(Events);
+
+        //}
 
         public void Remove(Event eventToBeRemoved)
         {
